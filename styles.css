@@ -280,3 +280,172 @@ p { font-size: 1.2rem; opacity: 0.8; }
   font-size: 1.25rem;
   font-weight: bold;
 }
+
+
+
+:root {
+  --bg-dark: #000000;         /* Deep slate background for the box */
+  --primary-color: #60a5fa;   /* Vibrant light blue for active elements */
+  --success-color: #34d399;   /* Crisp mint green for completed elements */
+  --neutral-line: #334155;    /* Darker slate for the connecting track line */
+  --text-light: #f8fafc;      /* Crisp white for main headings */
+  --text-muted: #94a3b8;      /* Soft gray for inactive text and labels */
+}
+
+.bill-tracker-container {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #475569; /* Subtle border to give the box definition */
+}
+
+.bill-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.bill-header h2 {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1.75rem;
+}
+
+.bill-title {
+  margin: 0.25rem 0 1rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.status-badge {
+  display: inline-block;
+  background-color: rgba(96, 165, 250, 0.15); /* Tinted dark blue transparent bg */
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* Stepper Layout */
+.stepper-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* The connecting line behind the circles */
+.stepper-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--neutral-line);
+  z-index: 1;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  z-index: 2;
+}
+
+/* Circle design */
+.stepper-item .step-counter {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 4px solid var(--neutral-line);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.stepper-item .step-name {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.step-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* State Modifications */
+
+/* 1. Completed Stages */
+.stepper-item.completed .step-counter {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: #0f172a; /* Dark text inside green circle for readability */
+}
+.stepper-item.completed .step-name {
+  color: var(--text-light);
+}
+.stepper-item.completed .step-date {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+/* 2. Current Active Stage */
+.stepper-item.active .step-counter {
+  background-color: var(--bg-dark);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.stepper-item.active .step-name {
+  color: var(--text-light);
+  font-weight: 700;
+}
+.stepper-item.active .step-date {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  .stepper-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1rem;
+  }
+  
+  .stepper-wrapper::before {
+    top: 0;
+    left: 38px;
+    width: 4px;
+    height: 100%;
+  }
+  
+  .stepper-item {
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .stepper-item .step-name {
+    margin-top: 0;
+    margin-left: 1rem;
+    text-align: left;
+  }
+}
