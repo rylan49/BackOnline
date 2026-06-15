@@ -254,3 +254,29 @@ p { font-size: 1.2rem; opacity: 0.8; }
     gap: 24px;
   }
 }
+
+
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none; /* removes underline from the link */
+  color: inherit; /* keeps text color consistent, not link-blue */
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
