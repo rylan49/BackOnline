@@ -6,9 +6,101 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+    <style>
+        /* Typography & Readability Improvements */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Layout tightening */
+        .site-header {
+            padding: 15px 20px;
+        }
+
+        .headline {
+            text-align: center;
+            margin: 30px 0 20px;
+        }
+
+        /* Standardized content constraints for readable line lengths */
+        .message {
+            max-width: 750px;
+            margin: 0 auto 25px auto;
+            padding: 0 20px;
+        }
+
+        .message h2 {
+            margin-bottom: 10px;
+        }
+
+        .message p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Button styling */
+        .skip-btn {
+            background-color: #ff3300;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 12px;
+            display: block;
+            width: fit-content;
+            margin: 0 auto 30px auto;
+            font-weight: bold;
+        }
+
+        /* Details / Template styling */
+        .message details {
+            border: 2px solid #475569;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: transparent;
+        }
+
+        .message details summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            outline: none;
+        }
+
+        .template-body {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .template-body p {
+            margin-bottom: 12px;
+        }
+
+        /* List layout tightening */
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer styling */
+        .site-footer-vertical {
+            max-width: 750px;
+            margin: 40px auto 0 auto;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-
 
 <header class="site-header">
   <a href="https://backonline.ca" class="logo-area">
@@ -17,66 +109,31 @@
   </a>
 </header>
 
-
-    <h1 class="headline">
-        LEGISLATION IS HERE TO <span class="secret">SILENCE</span> PROTECT YOU.
-    </h1>
-
-
-
-  
+<h1 class="headline">
+    LEGISLATION IS HERE TO <span class="secret">SILENCE</span> PROTECT YOU.
+</h1>
 
 <a href="#target-section" class="skip-btn">How to avoid censorship</a>
 
-<style>
-  .skip-btn {
-    background-color: #ff3300;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 15px;
-    
-    /* Center the button itself */
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-  }
-</style>
-
-
 <div class="message reveal">
-        <h2>A Law That Doesn't Add Up</h2>
-        <p>Requiring everyone — adults included — to verify their identity before using social media to address concerns about minors is a blunt, 
-            privacy-invasive solution to a narrow problem. Section 2(b) of the Charter protects freedom of expression, including the ability to access 
-            information and communicate anonymously, and a blanket verification mandate risks chilling that speech for millions while creating a tempting 
-            new database of sensitive personal data — without solving the underlying issue.</p>
-    
-        
-      </div>
-
+    <h2>A Law That Doesn't Add Up</h2>
+    <p>Requiring everyone — adults included — to verify their identity before using social media to address concerns about minors is a blunt, privacy-invasive solution to a narrow problem. Section 2(b) of the Charter protects freedom of expression, including the ability to access information and communicate anonymously, and a blanket verification mandate risks chilling that speech for millions while creating a tempting new database of sensitive personal data — without solving the underlying issue.</p>
+</div>
 
 <div class="message reveal">
   <h2>How to Find Your Member of Parliament</h2>
   <p>Finding the MP who represents your exact neighborhood is incredibly easy. All you need to do is go to the official Canadian House of Commons website at <a href="https://www.ourcommons.ca/members/en" style="color: inherit; text-decoration: underline;"><strong>ourcommons.ca/members/en</strong></a> and look for the "Members of Parliament" search tool. Simply type your postal code into the search bar, and it will immediately pull up your local representative, along with their official government email address, office phone number, and mailing address. You can email them directly or send a physical letter to their Ottawa office postage-free.</p>
   
-  <details style="border: 2px solid #475569; padding: 20px; margin-top: 20px; border-radius: 8px; background-color: transparent;">
-    <summary style="cursor: pointer; font-weight: bold; font-size: 1.1em; outline: none;">View Prewritten Message: Opposing the Social Media Ban</summary>
-    
-    <div style="margin-top: 15px;">
+  <details>
+    <summary>View Prewritten Message: Opposing the Social Media Ban</summary>
+    <div class="template-body">
       <p><strong>Subject:</strong> Opposition to the Social Media Ban – Protecting Privacy and Charter Rights for Youth</p>
-      
       <p>Dear <strong>[MP's Name]</strong>,</p>
-      
       <p>I am writing to you today as a constituent in your riding to express my strong opposition to the proposed ban on social media for youth under the Safe Social Media Act (Bill C-34). While I understand the government’s desire to improve online safety, a blanket ban is a heavy-handed approach that creates severe privacy risks for all Canadians and violates the fundamental rights of teenagers.</p>
-      
       <p>First, enforcing an age ban requires platforms to implement strict age verification systems. This will effectively eliminate online privacy, as social media companies will be forced to collect sensitive government IDs, passports, or use invasive biometric scanning just to verify who is allowed to log on. Forcing Canadians to hand over sensitive personal data to massive tech corporations creates massive cybersecurity risks and destroys our ability to communicate anonymously.</p>
-      
       <p>Second, banning teenagers from these platforms directly infringes upon their rights under <strong>Section 2(b) of the Canadian Charter of Rights and Freedoms</strong>, which guarantees the fundamental freedom of thought, belief, opinion, and expression. For young people today, social media is the modern public square. It is the primary place where teenagers learn about global events, connect with their peers, and express their identities. Stripping youth of their access to these digital spaces suppresses their constitutional right to free expression and isolates them from the world.</p>
-      
       <p>I urge you to stand up for the privacy of all Canadians and the Charter rights of young people by opposing this ban.</p>
-      
       <p>I look forward to hearing your official stance on this critical issue.</p>
-      
       <p>Sincerely,</p>
       <p><strong>[Your Name]</strong><br>
       <strong>[Your Postal Code/Address]</strong></p>
@@ -84,30 +141,22 @@
   </details>
 </div>
 
-
+<div class="message reveal">
+    <h2>Where Canada Currently Stands</h2>
+    <p>Right now, the ban is not law yet, but the wheels are officially in motion. On June 10, 2026, the federal government (under Prime Minister Mark Carney and Culture Minister Marc Miller) introduced <b>Bill C-34,</b> the Safe Social Media Act. This is the government's latest attempt to create a legal framework for online safety, following previous failed attempts like 2024's Bill C-63. Because the current government has a majority, this bill has a much smoother path to passing Parliament, though it still has to go through the standard legislative process. The government has stated that setting up the necessary regulatory body to enforce the rules—the new Digital Safety Commission of Canada—could take up to 18 months after the bill officially becomes law.</p>
+</div>
 
 <div class="message reveal">
-        <h2>Where Canada Currently Stands</h2>
-        <p>Right now, the ban is not law yet, but the wheels are officially in motion. On June 10, 2026, the federal government (under Prime Minister Mark Carney and Culture Minister Marc Miller) introduced <b>Bill C-34,</b> the Safe Social Media Act.  This is the government's latest attempt to create a legal framework for online safety, following previous failed attempts like 2024's Bill C-63. Because the current government has a majority, this bill has a much smoother path to passing Parliament, though it still has to go through the standard legislative process. The government has stated that setting up the necessary regulatory body to enforce the rules—the new Digital Safety Commission of Canada—could take up to 18 months after the bill officially becomes law.</p>
-    
-        
-      </div>
-
-
-<div class="message reveal">
-        <h2 id="target-section">Digital Privacy & Resource Access</h2>
-        <p>Information will appear here as needed, there are currently no restrictions for under 16's going on social media in Canada. (Updated June 15, 2026)</p>
-        <p>While we're uncertain, you can already prepare by downloading 4 apps on your iPhone.</p>
-        <ul>
-          <li><strong>Proton VPN:</strong> A secure, zero-logs virtual private network service offering reliable free tier servers.</li>
-          <li><strong>Onion Browser:</strong> An open-source browser utility utilizing localized routing technology to maximize online privacy.</li>
-          <li><strong>WireGuard:</strong> A fast, modern protocol that allows users to configure custom, private VPN connections manually.</li>
-          <li><strong>Mullvad VPN:</strong> A privacy-focused, paid VPN service heavily optimized for censorship resistance and anonymity.</li>
-        </ul>
-
-        
-      </div>
-
+    <h2 id="target-section">How can I protect myself from censorship?</h2>
+    <p>Information will appear here as needed, there are currently no restrictions for under 16's going on social media in Canada. (Updated June 15, 2026)</p>
+    <p>While we're uncertain, you can already prepare by downloading 4 apps on your iPhone.</p>
+    <ul>
+      <li><strong>Proton VPN:</strong> A secure, zero-logs virtual private network service offering reliable free tier servers.</li>
+      <li><strong>Onion Browser:</strong> An open-source browser utility utilizing localized routing technology to maximize online privacy.</li>
+      <li><strong>WireGuard:</strong> A fast, modern protocol that allows users to configure custom, private VPN connections manually.</li>
+      <li><strong>Mullvad VPN:</strong> A privacy-focused, paid VPN service heavily optimized for censorship resistance and anonymity.</li>
+    </ul>
+</div>
 
 <footer class="site-footer-vertical">
   <div class="footer-main">
