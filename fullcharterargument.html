@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Charter Argument | BackOnline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+    <style>
+        /* === DARK THEME TOKEN SYSTEM ===
+           Background:  #0d0d0f  (near-black with slight blue cast)
+           Surface:     #161619  (card/section backgrounds)
+           Border:      #2a2a30  (dividers, outlines)
+           Text:        #e8e8ec  (primary)
+           Muted:       #8a8a96  (secondary / captions)
+           Accent:      #ff3300  (brand red — kept from original)
+           Accent Glow: rgba(255,51,0,0.18)
+        */
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: #e8e8ec;
+            background-color: #0d0d0f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reveal {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 16px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            border-bottom: 1px solid #2a2a30;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #e8e8ec;
+        }
+
+        .logo {
+            height: 28px;
+            margin-right: 10px;
+            filter: invert(1) brightness(0.9);
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            color: #e8e8ec;
+        }
+
+        /* Hero headline */
+        .headline {
+            text-align: center;
+            margin: 48px 20px 28px;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: #e8e8ec;
+        }
+
+        .secret {
+            color: #ff3300;
+            font-weight: 800;
+        }
+
+        /* CTA button */
+        .skip-btn {
+            background-color: #ff3300;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            display: block;
+            width: fit-content;
+            margin: 0 auto 48px auto;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            transition: background-color 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 0 0 0 rgba(255,51,0,0);
+        }
+
+        .skip-btn:hover {
+            background-color: #e62e00;
+            box-shadow: 0 0 18px rgba(255,51,0,0.4);
+        }
+
+        /* Content sections */
+        .message {
+            max-width: 750px;
+            margin: 0 auto 28px auto;
+            padding: 28px 28px;
+            background: #161619;
+            border: 1px solid #2a2a30;
+            border-radius: 12px;
+            /* Narrow horizontal gutters on mobile */
+            width: calc(100% - 32px);
+        }
+
+        .message h2 {
+            margin: 0 0 12px 0;
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .message p {
+            margin: 0;
+            color: #c4c4cc;
+            font-size: 0.97rem;
+        }
+
+        .message p em {
+            color: #e8e8ec;
+            font-style: italic;
+        }
+
+        /* Red left-border accent for the "Current Status" section */
+        .message.status-section {
+            border-left: 3px solid #ff3300;
+            background: #130e0c;
+        }
+
+        /* Footer */
+        .site-footer-vertical {
+            max-width: 750px;
+            margin: 56px auto 0 auto;
+            padding: 28px 20px 40px;
+            border-top: 1px solid #2a2a30;
+            width: calc(100% - 0px);
+        }
+
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .footer-item h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8a8a96;
+        }
+
+        .footer-item p {
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+            color: #c4c4cc;
+        }
+
+        .footer-item a {
+            color: #ff6640;
+            text-decoration: underline;
+            text-decoration-color: rgba(255,102,64,0.4);
+        }
+
+        .footer-item a:hover {
+            color: #ff3300;
+        }
+
+        .box {
+            display: inline-block;
+            word-break: break-all;
+            font-size: 0.82em;
+            background: #1e1e24;
+            padding: 5px 9px;
+            border-radius: 5px;
+            border: 1px solid #2a2a30;
+            font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+            color: #c4c4cc;
+        }
+
+        .footer-divider {
+            border: 0;
+            border-top: 1px solid #2a2a30;
+            margin: 24px 0;
+        }
+
+        .disclaimer p,
+        .copyright p {
+            font-size: 0.82em;
+            color: #5c5c66;
+            line-height: 1.55;
+            margin-bottom: 8px;
+        }
+
+        .disclaimer strong {
+            color: #8a8a96;
+        }
+
+        .copyright a {
+            color: #5c5c66;
+        }
+
+        .copyright a:hover {
+            color: #8a8a96;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            .message {
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo-area">
+    <img src="/images/logo.svg" alt="BackOnline logo" class="logo">
+    <span class="brand-name">BackOnline.ca&trade;</span>
+  </a>
+</header>
+
+<h1 class="headline">
+    A LAW THAT <span class="secret">DOESN'T ADD UP</span> INFRINGES RIGHTS.
+</h1>
+
+<a href="index.html#mp-finder" class="skip-btn">Find Your MP &amp; Fight Back</a>
+
+<div class="message reveal">
+    <h2>The Structural Charter Argument</h2>
+    <p>Section 2(b) of the <em>Canadian Charter of Rights and Freedoms</em> guarantees the fundamental freedom of thought, belief, opinion, and expression. This protection explicitly includes the right to gather information, access critical community networks, and express oneself anonymously in public spaces.</p>
+</div>
+
+<div class="message reveal">
+    <h2>1. The Direct Threat to Digital Anonymity</h2>
+    <p>Enforcing an age-restriction mandate under the Safe Social Media Act (Bill C-34) requires a total rollback of internet privacy. Social media platforms will be legally compelled to force age-verification checks on all users, adults included. Tying real-world government identities, passports, or biometrics to online user profiles introduces unprecedented surveillance realities and effectively eliminates the right to speak or gather data anonymously in digital spaces.</p>
+</div>
+
+<div class="message reveal">
+    <h2>2. Chilling Effect on Free Expression</h2>
+    <p>When users are stripped of their digital anonymity and forced onto persistent logging databases run by corporate tech entities, an inevitable chilling effect occurs. Everyday individuals, vulnerable youth looking for community help, and whistleblower platforms will think twice before writing or sharing. This administrative barrier acts as a blunt form of systemic censorship for millions of everyday Canadians.</p>
+</div>
+
+<div class="message reveal">
+    <h2>3. Exile From the Modern Public Square</h2>
+    <p>For young Canadians under 16, social media infrastructure functions as the foundational layout for communication, news consumption, and collaborative learning. Stripping entire demographics away from their peers and digital networks under the guise of security does not build safe spaces—it isolates youth from global conversation and suppresses their clear constitutional rights to participate in the public square.</p>
+</div>
+
+<div class="message reveal status-section">
+    <h2>Current Status of the Bill</h2>
+    <p>Because the current federal majority government under Prime Minister Mark Carney introduced Bill C-34 on June 10, 2026, the legislative path is clear. It is currently progressing through standard parliamentary debates before the proposed Digital Safety Commission of Canada can be institutionalized over the next 18 months. Grassroots intervention is needed now.</p>
+</div>
+
+<footer class="site-footer-vertical">
+  <div class="footer-main">
+    <div class="footer-item">
+      <h4>Contact</h4>
+      <p>Have a question? <a href="mailto:connect@backonline.ca">Email us</a></p>
+      <code class="box">connect@backonline.ca</code>
+    </div>
+
+    <div class="footer-item">
+      <h4>Privacy</h4>
+      <p>Read our <a href="privacypolicy.html">Privacy Policy</a> to see how we protect your data.</p>
+    </div>
+
+    <div class="footer-item">
+      <h4>Onion Site (Offline)</h4>
+      <code class="box">2rxoye63k3x3ndeiietxijan2fhk4q3wpdfvbsh2w6mvig5qub52vpid.onion</code>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-item disclaimer">
+    <p><strong>Disclaimer:</strong> The information on this website is for educational and advocacy purposes only and does not constitute legal advice. If you need legal help, please contact a qualified professional or legal aid organization.</p>
+  </div>
+
+  <div class="footer-item copyright">
+    <p>Except where otherwise noted, content on this site is licensed under a
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">
+        Creative Commons Attribution-NonCommercial 4.0 International License
+      </a>.
+    </p>
+    <p>© 2026 BackOnline. Some rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
