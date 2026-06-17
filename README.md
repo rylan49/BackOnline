@@ -5,7 +5,7 @@ Credits
 
 
 
-Rylan: Content specialist and programmer
+Hunter: Content specialist | Web design | Managing email
 
 
 Jack (FiberShield): Web Design & Improvement Specialist
