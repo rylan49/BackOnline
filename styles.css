@@ -1,97 +1,87 @@
+/* ============================================================
+   BackOnline — Global Stylesheet
+   ============================================================ */
 
-
-body {
-    background-color:rgb(0, 0, 0);
+/* 1. Reset & Base
+   ------------------------------------------------------------ */
+* {
+    box-sizing: border-box; /* include padding in width calculations */
 }
 
+body {
+    background-color: #222222;   /* dark grey */
+    color: #ffffff;              /* white body text */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;          /* stop horizontal shake */
+}
+
+/* 2. Typography
+   ------------------------------------------------------------ */
 h1 {
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     text-align: left;
     font-family: monospace;
     font-size: 50px;
 }
 
-h2 {
-    color:#FF3B30;
+h2 {                              /* red headers */
+    color: #FF3B30;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-h3 {
-  color: white;
-}
-
-span {
-  color: white;
-}
+h3 { color: #ffffff; }
+h6 { color: #37ff00; }
 
 p {
-    color:rgb(255, 255, 255);
+    color: #ffffff;
     font-family: Helvetica;
+    font-size: 1.2rem;
 }
 
-a {
-    color:aquamarine;
-    font-family:Helvetica;
-}
+span    { color: #ffffff; }
+summary { color: #ffffff; }
+a       { color: aquamarine; font-family: Helvetica; }
 
+ol { text-align: left; }
+ul { margin-top: 5px; padding-left: 20px; }
+li { color: #ffffff; margin-bottom: 8px; }
 
-h6 {
-    color:#37ff00
-}
-
-ol {
-    text-align:left;
-}
-
-li {
-  color:white;
-}
-
-summary {
-  color: white;
-}
-
-
-
-
-
-.white-box {
-  background-color: #000000; /* Sets the background to white */
-  color: #000000;            /* Sets the text to black for contrast */
-  border: 1px solid #CCCCCC; /* Adds a light grey outline */
-  padding: 20px;             /* Creates spacing inside the box */
-  border-radius: 5px;        /* Smooths the corners */
-  max-width: 400px;          /* Prevents it from filling the whole screen */
-}
-
-
-
-
-
-
-
-
-/* 1. Reset & Base */
-* {
-    box-sizing: border-box; /* Crucial: includes padding in width calculations */
-}
-
-body {
-    background-color: #101010;
-    color: #F7F7F7;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Stops horizontal scrolling/shaking */
-}
-
-/* 2. Headline Section (Full Screen) */
-.headline {
-    height: 80vh; /* Exactly the height of the screen */
-    width: 100%;
+/* 3. Site header
+   ------------------------------------------------------------ */
+.site-header {
     display: flex;
-    flex-direction: column; /* Stack vertically if you add sub-text */
-    justify-content: center; /* Vertical center */
-    align-items: center;     /* Horizontal center */
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000;   /* black top bar */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;  /* removes underline from the link */
+    color: inherit;         /* keeps text color consistent, not link-blue */
+}
+
+.logo { height: 40px; width: auto; }
+.brand-name { font-size: 1.25rem; font-weight: bold; }
+
+/* 4. Headline (full-screen hero)
+   ------------------------------------------------------------ */
+.headline {
+    height: 80vh;
+    width: 100%;
+    margin: 0;                   /* kill default h1 margin (was showing grey) */
+    background-color: #000000;   /* black top background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 10px;
 }
@@ -99,11 +89,11 @@ body {
 .headline h1 {
     font-size: clamp(2rem, 8vw, 4.5rem);
     line-height: 1.1;
-    max-width: 900px; /* Keeps text from getting too wide on monitors */
+    max-width: 900px;
     margin: 0;
 }
 
-/* 3. The Censored Word */
+/* The censored word that un-redacts itself */
 .secret {
     background-color: #F7F7F7;
     color: #F7F7F7;
@@ -121,182 +111,244 @@ body {
     }
 }
 
-/* 4. Scrolling Content */
-.message {
-    min-height: 50vh; /* Each section takes up half a screen */
+/* 5. Separation barrier + lower content wrapper
+   ------------------------------------------------------------ */
+.section-divider {
+    border: none;
+    border-top: 10px solid #555;
     width: 100%;
-    max-width: 700px; /* Keeps reading lines comfortable */
-    margin: 0 auto 30vh auto; /* Centers the div and adds bottom gap */
-    padding: 40px 20px;
+    margin: 0;
+}
+
+.lower-section {
+    padding: 30px 0;   /* inherits the dark-grey body background */
+}
+
+/* 6. Call-to-action buttons
+   ------------------------------------------------------------ */
+.skip-btn {
+    background-color: #ff3300;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 12px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    font-weight: bold;
+}
+
+/* 7. Content blocks
+   ------------------------------------------------------------ */
+.message {
+    min-height: auto;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 6vh auto;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centers the H2 and P inside the div */
+    align-items: center;
     text-align: center;
 }
 
-/* 5. Scroll Reveal States */
+/* Details / prewritten-template box */
+.message details {
+    border: 2px solid #cbd5e1;
+    padding: 15px 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.message details summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    outline: none;
+}
+
+/* Center lists inside content blocks (no left bullet indent) */
+.message ul {
+    list-style-position: inside;
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.template-body {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #555;
+    text-align: left;            /* read the letter left-aligned */
+}
+
+.template-body p { margin-bottom: 12px; }
+
+/* 8. Scroll-reveal "pop up" animation
+   ------------------------------------------------------------ */
 .reveal {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-out;
+    transform: translateY(40px) scale(0.97);
+    transition: opacity 0.7s ease-out,
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
     opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger the heading and paragraphs so they pop in sequence */
+.reveal h2,
+.reveal p,
+.reveal ul,
+.reveal details {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active h2,
+.reveal.active p,
+.reveal.active ul,
+.reveal.active details {
+    opacity: 1;
     transform: translateY(0);
 }
 
-h2 { color: #FF3B30; font-size: 2rem; margin-bottom: 1rem; }
-p { font-size: 1.2rem; opacity: 0.8; }
+.reveal.active h2               { transition-delay: 0.08s; }
+.reveal.active p                { transition-delay: 0.20s; }
+.reveal.active p:nth-of-type(2) { transition-delay: 0.30s; }
+.reveal.active p:nth-of-type(3) { transition-delay: 0.40s; }
+.reveal.active ul,
+.reveal.active details          { transition-delay: 0.34s; }
 
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal h2,
+    .reveal p,
+    .reveal ul,
+    .reveal details {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 
-
-
-
-
-/* Hide the text by default (for mobile and tablet) */
-.pc-only {
-  display: none;
+    .secret {
+        animation: none;
+        background-color: transparent;
+        color: #FF3B30;
+        text-decoration: line-through;
+    }
 }
 
-/* Show the text only on screens wider than 1024px (PCs) */
+/* 9. Helpers
+   ------------------------------------------------------------ */
+.pc-only { display: none; }
+
 @media (min-width: 1024px) {
-  .pc-only {
-    display: inline; /* Use 'block' if you used a div instead of a span */
-  }
+    .pc-only { display: inline; }
 }
 
+.white-box {
+    background-color: #000000;
+    color: #000000;
+    border: 1px solid #CCCCCC;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+}
 
-
-
-
-#####
-
+/* 10. Footer
+   ------------------------------------------------------------ */
 .site-footer-vertical {
-  background-color: #1a1a1a;
-  color: #d4d4d4;
-  padding: 48px 24px 32px;
-  font-size: 0.95rem;
-  line-height: 1.6;
+    background-color: #1a1a1a;
+    color: #d4d4d4;
+    padding: 48px 24px 32px;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .footer-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
-  max-width: 1000px;
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.footer-main .footer-item {
-  flex: 1 1 220px;
-}
+.footer-main .footer-item { flex: 1 1 220px; }
 
 .footer-item h4 {
-  color: #ffffff;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-  font-weight: 600;
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .footer-item a {
-  color: #8ab4f8;
-  text-decoration: none;
-  transition: color 0.15s ease;
+    color: #8ab4f8;
+    text-decoration: none;
+    transition: color 0.15s ease;
 }
 
 .footer-item a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .status-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 2px 8px;
-  border-radius: 4px;
-  vertical-align: middle;
-  margin-left: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 6px;
 }
 
-.status-tag.offline {
-  background-color: #4a1f1f;
-  color: #ff8a8a;
-}
-
-.status-tag.online {
-  background-color: #1f4a2a;
-  color: #8aff9c;
-}
+.status-tag.offline { background-color: #4a1f1f; color: #ff8a8a; }
+.status-tag.online  { background-color: #1f4a2a; color: #8aff9c; }
 
 .box {
-  display: inline-block;
-  background-color: #262626;
-  color: #c0c0c0;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  word-break: break-all;
-  border: 1px solid #3a3a3a;
+    display: inline-block;
+    background-color: #262626;
+    color: #c0c0c0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    word-break: break-all;
+    border: 1px solid #3a3a3a;
 }
 
 .footer-divider {
-  max-width: 1000px;
-  margin: 32px auto;
-  border: none;
-  border-top: 1px solid #333;
+    max-width: 1000px;
+    margin: 32px auto;
+    border: none;
+    border-top: 1px solid #333;
 }
 
 .footer-item.disclaimer,
 .footer-item.copyright {
-  max-width: 1000px;
-  margin: 0 auto 8px;
-  font-size: 0.85rem;
-  color: #a0a0a0;
+    max-width: 1000px;
+    margin: 0 auto 8px;
+    font-size: 0.85rem;
+    color: #a0a0a0;
 }
 
-.footer-item.disclaimer strong {
-  color: #d4d4d4;
-}
+.footer-item.disclaimer strong { color: #d4d4d4; }
 
 @media (max-width: 600px) {
-  .footer-main {
-    flex-direction: column;
-    gap: 24px;
-  }
+    .footer-main {
+        flex-direction: column;
+        gap: 24px;
+    }
 }
-
-
-.site-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem;
-}
-
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none; /* removes underline from the link */
-  color: inherit; /* keeps text color consistent, not link-blue */
-}
-
-.logo {
-  height: 40px;
-  width: auto;
-}
-
-.brand-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-
-
