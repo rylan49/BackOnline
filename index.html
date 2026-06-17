@@ -23,9 +23,11 @@
 
 <div class="lower-section">
 
+<div class="btn-row">
 <a href="#target-section" class="skip-btn">How to avoid censorship</a>
 <a href="fullcharterargument.html" class="skip-btn">Read the Full Charter Argument</a>
 <a href="getinvolved.html" class="skip-btn cta-secondary">Get involved</a>
+</div>
 
 
 <div class="message reveal">
@@ -40,24 +42,54 @@
     <p>Section 2(b) of the Charter protects freedom of expression, including the ability to access information and communicate anonymously, and a blanket verification mandate risks chilling that speech for millions while creating a tempting new database of sensitive personal data — without solving the underlying issue.</p>
 </div>
 
-<div class="message reveal">
-  <h2>How to Find Your Member of Parliament</h2>
-  <p>Finding the MP who represents your exact neighborhood is incredibly easy. All you need to do is go to the official Canadian House of Commons website at <a href="https://www.ourcommons.ca/members/en" style="color: inherit; text-decoration: underline;"><strong>ourcommons.ca/members/en</strong></a> and look for the "Members of Parliament" search tool.</p>
-  <p>Simply type your postal code into the search bar, and it will immediately pull up your local representative, along with their official government email address, office phone number, and mailing address. You can email them directly or send a physical letter to their Ottawa office postage-free.</p>
-  
-  <details>
-    <summary>View Prewritten Message: Opposing the Social Media Ban</summary>
+<div class="message reveal" id="mp-tool">
+  <h2>Find Your Member of Parliament</h2>
+  <p>Enter your postal code to find the MP who represents you, then send them the editable message below. Everything happens in your browser — we never see or store your postal code.</p>
+
+  <form id="mp-form" class="mp-form" autocomplete="off" novalidate>
+    <input id="postal" name="postal" type="text" inputmode="text" maxlength="7"
+           placeholder="e.g. K1A 0A6" class="mp-input" aria-label="Postal code" required>
+    <button type="submit" class="skip-btn mp-submit">Find My MP</button>
+  </form>
+
+  <p id="mp-status" class="mp-status" role="status" aria-live="polite"></p>
+
+  <div id="mp-result" class="mp-result" hidden>
+    <img id="mp-photo" class="mp-photo" alt="" hidden>
+    <div class="mp-info">
+      <h3 id="mp-name"></h3>
+      <p id="mp-meta" class="mp-meta"></p>
+      <a id="mp-email" class="mp-email-link" href="#" hidden></a>
+    </div>
+  </div>
+
+  <details class="mp-template" id="mp-template">
+    <summary>Your message: Opposing the Social Media Ban</summary>
     <div class="template-body">
-      <p><strong>Subject:</strong> Opposition to the Social Media Ban – Protecting Privacy and Charter Rights for Youth</p>
-      <p>Dear <strong>[MP's Name]</strong>,</p>
-      <p>I am writing to you today as a constituent in your riding to express my strong opposition to the proposed ban on social media for youth under the Safe Social Media Act (Bill C-34). While I understand the government’s desire to improve online safety, a blanket ban is a heavy-handed approach that creates severe privacy risks for all Canadians and violates the fundamental rights of teenagers.</p>
-      <p>First, enforcing an age ban requires platforms to implement strict age verification systems. This will effectively eliminate online privacy, as social media companies will be forced to collect sensitive government IDs, passports, or use invasive biometric scanning just to verify who is allowed to log on. Forcing Canadians to hand over sensitive personal data to massive tech corporations creates massive cybersecurity risks and destroys our ability to communicate anonymously.</p>
-      <p>Second, banning teenagers from these platforms directly infringes upon their rights under <strong>Section 2(b) of the Canadian Charter of Rights and Freedoms</strong>, which guarantees the fundamental freedom of thought, belief, opinion, and expression. For young people today, social media is the modern public square. It is the primary place where teenagers learn about global events, connect with their peers, and express their identities. Stripping youth of their access to these digital spaces suppresses their constitutional right to free expression and isolates them from the world.</p>
-      <p>I urge you to stand up for the privacy of all Canadians and the Charter rights of young people by opposing this ban.</p>
-      <p>I look forward to hearing your official stance on this critical issue.</p>
-      <p>Sincerely,</p>
-      <p><strong>[Your Name]</strong><br>
-      <strong>[Your Postal Code/Address]</strong></p>
+      <label for="mp-subject">Subject</label>
+      <input id="mp-subject" class="mp-input mp-input-wide" type="text"
+             value="Opposition to the Social Media Ban – Protecting Privacy and Charter Rights for Youth">
+
+      <label for="mp-body">Message (edit it to sound like you)</label>
+      <textarea id="mp-body" class="mp-textarea" rows="18">Dear [MP's Name],
+
+I am writing to you as a constituent in your riding to express my strong opposition to the proposed ban on social media for youth under the Safe Social Media Act (Bill C-34). While I understand the government's desire to improve online safety, a blanket ban is a heavy-handed approach that creates severe privacy risks for all Canadians and violates the fundamental rights of teenagers.
+
+First, enforcing an age ban requires platforms to implement strict age verification systems. This effectively eliminates online privacy, as social media companies will be forced to collect sensitive government IDs, passports, or use invasive biometric scanning just to verify who is allowed to log on. Forcing Canadians to hand over sensitive personal data to massive tech corporations creates serious cybersecurity risks and destroys our ability to communicate anonymously.
+
+Second, banning teenagers from these platforms directly infringes upon their rights under Section 2(b) of the Canadian Charter of Rights and Freedoms, which guarantees the fundamental freedom of thought, belief, opinion, and expression. For young people today, social media is the modern public square — the primary place where teenagers learn about global events, connect with their peers, and express their identities. Stripping youth of their access to these digital spaces suppresses their constitutional right to free expression and isolates them from the world.
+
+I urge you to stand up for the privacy of all Canadians and the Charter rights of young people by opposing this ban. I look forward to hearing your official stance on this critical issue.
+
+Sincerely,
+[Your Name]
+[Your Postal Code]</textarea>
+
+      <div class="mp-actions">
+        <button type="button" id="mp-send" class="skip-btn">Open in Email App</button>
+        <button type="button" id="mp-copy" class="skip-btn mp-secondary">Copy Message</button>
+      </div>
+      <p class="mp-fallback">Prefer to do it by hand? You can also send a letter postage free. <a href="https://www.ourcommons.ca/members/en"><strong>ourcommons.ca</strong></a> directory.</p>
     </div>
   </details>
 </div>

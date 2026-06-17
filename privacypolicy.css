@@ -1,0 +1,174 @@
+/* ============================================================
+   Privacy Policy Page — Dark theme styling
+   ============================================================ */
+
+/* Global Reset & Base Layout */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c9d1d9;
+  background-color: #000000;
+}
+
+.privacy-container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Remove Decorative Components */
+.brand-mark,
+.section-badge,
+.privacy-divider,
+.promise-strip .dot {
+  display: none !important;
+}
+
+/* Headings */
+h1, h2 {
+  color: #ffffff;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.privacy-date {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+
+.privacy-intro {
+  font-size: 1.05rem;
+  color: #f0f6fc;
+  margin-bottom: 24px;
+}
+
+/* Simplified Key Promises List */
+.promise-strip {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.promise-strip li {
+  margin-bottom: 8px;
+  color: #8b949e;
+}
+
+.promise-strip li::before {
+  content: "• ";
+  color: #30363d;
+  padding-right: 4px;
+}
+
+/* Layout Content Sections */
+.sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.privacy-section {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  border-bottom: 1px solid #21262d;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+/* Typography & Core Elements */
+p {
+  margin: 0 0 16px 0;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 12px 0;
+  list-style-type: disc;
+}
+
+li {
+  margin-bottom: 8px;
+  padding-left: 0 !important;
+}
+
+li::before {
+  display: none !important;
+}
+
+/* Hyperlinks & Inline Buttons */
+a, .contact-button {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+a:hover, .contact-button:hover {
+  color: #79c0ff;
+}
+
+.contact-button {
+  background: none !important;
+  padding: 0 !important;
+  display: inline-block !important;
+  font-weight: normal !important;
+}
+
+.contact-button svg {
+  display: none !important;
+}
+
+/* Footer Layout */
+.site-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid #21262d;
+  font-size: 0.85rem;
+  color: #484f58;
+  text-align: left;
+}
+
+.site-footer a {
+  color: #8b949e;
+}
+
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  background-color: #000000;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

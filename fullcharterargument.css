@@ -1,0 +1,219 @@
+/* ============================================================
+   Full Charter Argument Page — Standalone dark theme design
+   ============================================================ */
+
+/* Dark theme color tokens */
+/* Background:  #0d0d0f  (near-black with slight blue cast)
+   Surface:     #161619  (card/section backgrounds)
+   Border:      #2a2a30  (dividers, outlines)
+   Text:        #e8e8ec  (primary)
+   Muted:       #8a8a96  (secondary / captions)
+   Accent:      #ff3300  (brand red — kept from original)
+   Accent Glow: rgba(255,51,0,0.18) */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    color: #e8e8ec;
+    background-color: #0d0d0f;
+    margin: 0;
+    padding: 0;
+}
+
+.reveal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000;
+    border-bottom: 1px solid #2a2a30;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #e8e8ec;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: #e8e8ec;
+}
+
+/* Hero headline */
+.headline {
+    text-align: center;
+    margin: 48px 20px 28px;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: #e8e8ec;
+}
+
+.secret {
+    color: #ff3300;
+    font-weight: 800;
+}
+
+/* CTA button */
+.skip-btn {
+    background-color: #ff3300;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 48px auto;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 0 0 0 rgba(255,51,0,0);
+}
+
+.skip-btn:hover {
+    background-color: #e62e00;
+    box-shadow: 0 0 18px rgba(255,51,0,0.4);
+}
+
+/* Content sections */
+.message {
+    max-width: 750px;
+    margin: 0 auto 28px auto;
+    padding: 28px 28px;
+    background: #161619;
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    width: calc(100% - 32px);
+}
+
+.message h2 {
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.message p {
+    margin: 0;
+    color: #c4c4cc;
+    font-size: 0.97rem;
+}
+
+.message p em {
+    color: #e8e8ec;
+    font-style: italic;
+}
+
+/* Red left-border accent for the "Current Status" section */
+.message.status-section {
+    border-left: 3px solid #ff3300;
+    background: #130e0c;
+}
+
+/* Footer */
+.site-footer-vertical {
+    max-width: 750px;
+    margin: 56px auto 0 auto;
+    padding: 28px 20px 40px;
+    border-top: 1px solid #2a2a30;
+    width: calc(100% - 0px);
+}
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.footer-item h4 {
+    margin: 0 0 6px 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8a8a96;
+}
+
+.footer-item p {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    color: #c4c4cc;
+}
+
+.footer-item a {
+    color: #ff6640;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,102,64,0.4);
+}
+
+.footer-item a:hover {
+    color: #ff3300;
+}
+
+.box {
+    display: inline-block;
+    word-break: break-all;
+    font-size: 0.82em;
+    background: #1e1e24;
+    padding: 5px 9px;
+    border-radius: 5px;
+    border: 1px solid #2a2a30;
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+    color: #c4c4cc;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #2a2a30;
+    margin: 24px 0;
+}
+
+.disclaimer p,
+.copyright p {
+    font-size: 0.82em;
+    color: #5c5c66;
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
+.disclaimer strong {
+    color: #8a8a96;
+}
+
+.copyright a {
+    color: #5c5c66;
+}
+
+.copyright a:hover {
+    color: #8a8a96;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .message {
+        border-radius: 8px;
+    }
+}

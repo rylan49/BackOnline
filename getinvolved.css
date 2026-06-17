@@ -1,0 +1,70 @@
+/* ============================================================
+   GetInvolved Page — Overrides for dark theme consistency
+   ============================================================ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout tightening */
+.site-header {
+    padding: 15px 20px;
+}
+
+.headline {
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+/* Standardized content constraints for readable line lengths */
+.message {
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.message h2, .message h3 {
+    margin-bottom: 10px;
+}
+
+.message p {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Custom Box/Card Layouts matching site semantics */
+.card-item {
+    border: 2px solid #475569;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.box {
+    display: inline-block;
+    background: #262626;
+    color: #c0c0c0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-family: monospace;
+    word-break: break-all;
+    margin-top: 10px;
+    border: 1px solid #3a3a3a;
+}
+
+/* List layout tightening */
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}

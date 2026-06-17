@@ -138,6 +138,18 @@ li { color: #ffffff; margin-bottom: 8px; }
     font-weight: bold;
 }
 
+/* Stack the hero buttons in a horizontal row on wider screens */
+@media (min-width: 700px) {
+    .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .btn-row .skip-btn { margin: 0 0 30px 0; }
+}
+
 /* 7. Content blocks
    ------------------------------------------------------------ */
 .message {
@@ -186,6 +198,122 @@ li { color: #ffffff; margin-bottom: 8px; }
 }
 
 .template-body p { margin-bottom: 12px; }
+
+/* 7b. Find Your MP tool
+   ------------------------------------------------------------ */
+.mp-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.mp-input {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 2px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    width: 100%;
+    max-width: 220px;
+}
+
+.mp-input-wide { max-width: none; }
+
+.mp-input:focus { outline: none; border-color: #ff3300; }
+
+.mp-form .mp-submit { margin: 0; }
+
+.mp-status {
+    min-height: 1.2em;
+    font-size: 1rem;
+    margin: 4px 0 10px;
+}
+
+.mp-status.error { color: #ff8a8a; }
+
+.mp-result[hidden] { display: none; }
+
+.mp-result {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 16px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.mp-photo {
+    width: 72px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.mp-info h3 { margin: 0 0 4px; font-size: 1.3rem; }
+.mp-meta { font-size: 1rem; margin: 0 0 6px; color: #c0c0c0; }
+.mp-email-link { word-break: break-all; }
+
+/* Slide + fade the message in when the details is opened */
+.mp-template[open] .template-body {
+    animation: mpReveal 0.35s ease-out;
+}
+
+@keyframes mpReveal {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mp-template[open] .template-body { animation: none; }
+}
+
+.mp-template label {
+    display: block;
+    font-weight: bold;
+    margin: 14px 0 4px;
+    font-size: 0.95rem;
+}
+
+.mp-textarea {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 2px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.mp-textarea:focus { outline: none; border-color: #ff3300; }
+
+.mp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.mp-actions .skip-btn { margin: 0; }
+
+.mp-secondary {
+    background-color: transparent;
+    border: 2px solid #ff3300;
+}
+
+.mp-fallback { font-size: 0.95rem; margin-top: 14px; color: #c0c0c0; }
 
 /* 8. Scroll-reveal "pop up" animation
    ------------------------------------------------------------ */
