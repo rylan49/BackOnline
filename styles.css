@@ -50,26 +50,58 @@ ol { text-align: left; }
 ul { margin-top: 5px; padding-left: 20px; }
 li { color: #ffffff; margin-bottom: 8px; }
 
-/* 3. Site header
+/* 3. Site header + Nav
    ------------------------------------------------------------ */
 .site-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #000000;   /* black top bar */
+    padding: 0.75rem 1.5rem;
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    text-decoration: none;  /* removes underline from the link */
-    color: inherit;         /* keeps text color consistent, not link-blue */
+    text-decoration: none;
+    color: inherit;
 }
 
-.logo { height: 40px; width: auto; }
-.brand-name { font-size: 1.25rem; font-weight: bold; }
+.logo { height: 36px; width: auto; }
+.brand-name { font-size: 1.1rem; font-weight: bold; }
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease;
+}
+
+.site-nav a:hover { color: #ffffff; }
+
+.site-nav a.nav-active { color: #ff3300; }
+
+@media (max-width: 600px) {
+    .site-nav { gap: 1rem; }
+    .brand-name { display: none; }
+}
 
 /* 4. Headline (full-screen hero)
    ------------------------------------------------------------ */
