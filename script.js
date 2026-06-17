@@ -1,3 +1,26 @@
+// ---- Mobile Navigation Toggle ----
+(function () {
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+        toggle.classList.toggle('active');
+        nav.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
+    });
+
+    // Close menu when a link is clicked
+    nav.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+            toggle.classList.remove('active');
+            nav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
 // This function watches for elements with the 'reveal' class
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
