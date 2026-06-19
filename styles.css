@@ -1020,8 +1020,9 @@ li { color: #ffffff; margin-bottom: 8px; }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
     border-radius: 16px;
     margin-bottom: 14px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
@@ -1029,10 +1030,18 @@ li { color: #ffffff; margin-bottom: 8px; }
 }
 
 .app-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     display: block;
     fill: currentColor;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+.wireguard-icon svg,
+.mullvad-icon svg {
+    width: 34px;
+    height: 34px;
 }
 
 .privacy-app-card:hover .app-icon {
