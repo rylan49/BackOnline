@@ -965,3 +965,161 @@ li { color: #ffffff; margin-bottom: 8px; }
     color: #888;
     font-size: 0.85rem;
 }
+
+/* 12. Get Prepared Section
+   ------------------------------------------------------------ */
+.privacy-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto 0;
+    padding: 0 20px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.privacy-apps-grid li {
+    display: flex;
+}
+
+.privacy-app-card {
+    position: relative;
+    flex: 1;
+    background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    padding: 22px 16px 18px;
+    margin: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+.privacy-app-card:hover {
+    background: linear-gradient(135deg, #242424 0%, #1f1f1f 100%);
+    border-color: #3a3a3a;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.privacy-app-card:focus-visible {
+    outline: 2px solid #8ab4f8;
+    outline-offset: 3px;
+}
+
+/* App-icon "tile" — mimics a phone home-screen icon */
+.app-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.app-icon svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    fill: currentColor;
+}
+
+.privacy-app-card:hover .app-icon {
+    transform: scale(1.08);
+}
+
+/* Brand colours — tinted gradient tile with the logo in a contrasting colour */
+.proton-icon {
+    background: linear-gradient(145deg, #8a6cff 0%, #6d4aff 100%);
+    color: #fff;
+}
+
+.onion-icon {
+    background: linear-gradient(145deg, #9a57bd 0%, #7e4798 100%);
+    color: #fff;
+}
+
+.wireguard-icon {
+    background: linear-gradient(145deg, #d43a40 0%, #a4161a 100%);
+    color: #fff;
+}
+
+.mullvad-icon {
+    background: linear-gradient(145deg, #ffd740 0%, #f4c300 100%);
+    color: #1b2a3a;
+}
+
+/* Brand-tinted glow on hover */
+.privacy-app-card:hover .proton-icon    { box-shadow: 0 6px 18px rgba(109, 74, 255, 0.5); }
+.privacy-app-card:hover .onion-icon     { box-shadow: 0 6px 18px rgba(126, 71, 152, 0.5); }
+.privacy-app-card:hover .wireguard-icon { box-shadow: 0 6px 18px rgba(164, 22, 26, 0.5); }
+.privacy-app-card:hover .mullvad-icon   { box-shadow: 0 6px 18px rgba(244, 195, 0, 0.45); }
+
+/* Text styling */
+.privacy-app-card strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+    color: #f0f0f0;
+}
+
+.privacy-app-card p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #b0b0b0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Free / Paid pill */
+.app-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    line-height: 1;
+}
+
+.app-tag.free {
+    background: rgba(129, 201, 149, 0.14);
+    color: #81c995;
+    border: 1px solid rgba(129, 201, 149, 0.3);
+}
+
+.app-tag.paid {
+    background: rgba(255, 179, 64, 0.14);
+    color: #ffb340;
+    border: 1px solid rgba(255, 179, 64, 0.3);
+}
+
+/* Intro text above the list */
+#target-section + p {
+    max-width: 100%;
+    text-align: left;
+    color: #c0c0c0;
+    margin-bottom: 0.5rem;
+}
+
+#target-section + p + p {
+    font-size: 1.05rem;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+}
