@@ -387,8 +387,8 @@ revealElements.forEach((el) => observer.observe(el));
 // ---- Action Counters (MP found · emails sent · petition signatures) ----
 // Shows three live tallies at the top of the page and pings the API when a
 // visitor completes one of those actions. No personal data is sent — just an
-// empty POST naming the action type. The API caps each visitor at one count
-// per type per day.
+// empty POST naming the action type, and every reported action is counted.
+// When a tally goes up, the number rolls up and the box pulses with a "+N".
 (function () {
     var API = 'https://api.backonline.ca';
 
@@ -402,29 +402,76 @@ revealElements.forEach((el) => observer.observe(el));
     var container = document.getElementById('action-stats');
     if (!container) return;
 
-    function render(counts) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var shown = {}; // the last value we displayed for each type
+
+    function fmt(n) { return n.toLocaleString('en-CA'); }
+
+    // Roll the displayed number from -> to, easing out, then settle exactly.
+    function countUp(el, from, to) {
+        var duration = 700;
+        var start = null;
+        function frame(ts) {
+            if (start === null) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+            el.textContent = fmt(Math.round(from + (to - from) * eased));
+            if (p < 1) {
+                requestAnimationFrame(frame);
+            } else {
+                el.textContent = fmt(to);
+            }
+        }
+        requestAnimationFrame(frame);
+    }
+
+    // Pulse the box and float a "+N" badge above it.
+    function celebrate(box, delta) {
+        if (!box) return;
+        box.classList.remove('stat-bump');
+        void box.offsetWidth; // reflow so the animation can restart
+        box.classList.add('stat-bump');
+
+        var pop = document.createElement('span');
+        pop.className = 'stat-pop';
+        pop.textContent = '+' + fmt(delta);
+        box.appendChild(pop);
+        setTimeout(function () {
+            if (pop.parentNode) pop.parentNode.removeChild(pop);
+        }, 1100);
+    }
+
+    function applyCounts(counts, animate) {
         if (!counts) return;
         STATS.forEach(function (s) {
-            var n = counts[s.type];
-            if (s.el && typeof n === 'number' && !isNaN(n)) {
-                s.el.textContent = n.toLocaleString('en-CA');
+            var to = counts[s.type];
+            if (!s.el || typeof to !== 'number' || isNaN(to)) return;
+
+            var from = typeof shown[s.type] === 'number' ? shown[s.type] : to;
+            var increased = to > from;
+            shown[s.type] = to;
+
+            if (animate && increased && !reduceMotion) {
+                countUp(s.el, from, to);
+                celebrate(s.el.closest('.stat-box'), to - from);
+            } else {
+                s.el.textContent = fmt(to);
             }
         });
         container.hidden = false;
     }
 
-    // Show the current tallies on load. Stay hidden if the API is unreachable.
+    // Show the current tallies on load (no animation). Stay hidden if unreachable.
     fetch(API + '/api/action-count')
         .then(function (r) { return r.ok ? r.json() : null; })
-        .then(render)
+        .then(function (d) { applyCounts(d, false); })
         .catch(function () { /* leave the stats hidden */ });
 
-    // Fire-and-forget: report each completed action. There is no dedup, so every
-    // successful action increments the tally.
+    // Fire-and-forget: report the action, then animate whatever changed.
     function track(type) {
         fetch(API + '/api/track-action?type=' + type, { method: 'POST', keepalive: true })
             .then(function (r) { return r.ok ? r.json() : null; })
-            .then(render)
+            .then(function (d) { applyCounts(d, true); })
             .catch(function () { /* ignore */ });
     }
 
