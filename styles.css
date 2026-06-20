@@ -146,9 +146,8 @@ li { color: #ffffff; margin-bottom: 8px; }
         overflow: visible;
     }
 
-    /* Hide Charter Argument, Get Involved, and Privacy on mobile by default */
-    .site-nav li:nth-child(2),
-    .site-nav li:nth-child(3),
+    /* Hide Get Involved and Privacy on mobile by default; show Home, Charter, Perspectives */
+    .site-nav li:nth-child(4),
     .site-nav li:nth-child(5) {
         display: none;
     }
