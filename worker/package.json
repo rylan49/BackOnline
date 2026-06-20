@@ -1,0 +1,14 @@
+{
+  "name": "backonline-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Action counter API for backonline.ca (petition signs + MP emails)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

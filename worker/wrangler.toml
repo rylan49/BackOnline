@@ -1,0 +1,39 @@
+name = "backonline-api"
+main = "src/index.js"
+compatibility_date = "2026-06-20"
+
+[observability]
+enabled = true
+
+# --- Durable Object: the atomic counter ---
+[[durable_objects.bindings]]
+name = "COUNTER"
+class_name = "Counter"
+
+# SQLite-backed Durable Objects are required for the free plan.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Counter"]
+
+# --- KV: per-visitor daily dedup (24h TTL keys) ---
+# Create it once with:  npx wrangler kv namespace create RATELIMIT
+# then paste the printed id below.
+[[kv_namespaces]]
+binding = "RATELIMIT"
+id = "PASTE_KV_NAMESPACE_ID_HERE"
+
+# --- Public vars ---
+[vars]
+# Optional starting number, added on top of real actions (e.g. signatures you
+# already had elsewhere). Leave at "0" to count only actions through this API.
+BASELINE_COUNT = "0"
+
+# --- Custom domain ---
+# Maps https://api.backonline.ca to this Worker and provisions DNS + TLS
+# automatically (the backonline.ca zone must be on this Cloudflare account).
+[[routes]]
+pattern = "api.backonline.ca"
+custom_domain = true
+
+# IP_SALT is a secret, NOT set here. Set it once with:
+#   npx wrangler secret put IP_SALT

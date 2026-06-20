@@ -57,7 +57,7 @@
 
     <header class="privacy-header">
       <h1 class="privacy-title">Privacy Policy</h1>
-      <p class="privacy-date">Last updated · June 18, 2026</p>
+      <p class="privacy-date">Last updated · June 20, 2026</p>
 
       <p class="privacy-intro">
         Welcome to our youth rights advocacy website! Because we advocate for young people, we take your privacy incredibly seriously. This page explains in plain English what data we collect, why we collect it, and how we protect it.
@@ -156,6 +156,20 @@
             <li><strong>CCF's privacy policy applies:</strong> Any information you submit on the petition form is governed by the Canadian Constitution Foundation's privacy policy, not BackOnline's. The CCF manages all petition data and communications.</li>
             <li><strong>Client-side submission:</strong> The form submission happens entirely in your browser (client-side). We do not process your information on our servers.</li>
             <li><strong>Questions about your data:</strong> For questions about how the CCF handles petition data or to manage your preferences, visit <a href="https://theccf.ca/" target="_blank" rel="noopener">theccf.ca</a>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="privacy-section">
+        <div class="section-body">
+          <h2 class="section-title">The Action Counter</h2>
+          <p>Our homepage shows a live count of how many people have taken action against Bill C-34. This is the only feature that talks to a server we operate ourselves — a small counter service running on Cloudflare at <strong>api.backonline.ca</strong>. We built it to be as privacy-protective as possible:</p>
+          <ul>
+            <li><strong>No personal data is sent:</strong> When you sign the petition or copy or open an MP message, your browser sends a single, empty request that just means "someone took action." It contains <strong>no name, email, postal code, message text, or any other personal information</strong>.</li>
+            <li><strong>We never store your IP address:</strong> To stop one person from inflating the count, the service needs to recognize a repeat action within the same day. It does this <em>without keeping your IP</em>: your IP is combined with a secret key and run through a one-way cryptographic hash (SHA-256). Only that scrambled, irreversible value is stored, and it is <strong>automatically deleted after 24 hours</strong>. Your real IP address is never written down or logged by us, and the hash cannot be turned back into your IP.</li>
+            <li><strong>All we ever see is a number:</strong> The only thing we can read is an anonymous running total. We cannot connect any count to you, your device, or which action you took.</li>
+            <li><strong>Cloudflare:</strong> Because the counter runs on Cloudflare's network, Cloudflare's servers handle your request in transit and see your IP, as with any website request. For details, see <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy/</a>.</li>
+            <li><strong>You can opt out by doing nothing special:</strong> The counter relies on JavaScript. If you browse with scripts disabled (for example, Tor with NoScript), nothing is ever sent to the counter — the petition and MP tools still work through their direct links.</li>
           </ul>
         </div>
       </article>

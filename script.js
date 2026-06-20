@@ -370,3 +370,49 @@ revealElements.forEach((el) => observer.observe(el));
         }
     }
 })();
+
+
+// ---- Action Counter (petition signs + MP emails) ----
+// Shows a live "X people have taken action" count and pings the API when a
+// visitor signs the petition or emails their MP. No personal data is sent —
+// just an empty POST. The API caps each visitor at one count per day.
+(function () {
+    var API = 'https://api.backonline.ca';
+
+    var counter = document.getElementById('action-counter');
+    var numberEl = document.getElementById('action-counter-number');
+    if (!counter || !numberEl) return;
+
+    function render(count) {
+        if (typeof count !== 'number' || isNaN(count)) return;
+        numberEl.textContent = count.toLocaleString('en-CA');
+        counter.hidden = false;
+    }
+
+    // Show the current total on load. Stay hidden if the API can't be reached.
+    fetch(API + '/api/action-count')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { if (d) render(d.count); })
+        .catch(function () { /* leave the counter hidden */ });
+
+    // Fire-and-forget. Both the once-per-view guard here and the API's
+    // per-visitor daily cap keep repeated clicks from inflating the count.
+    var tracked = false;
+    function track() {
+        if (tracked) return;
+        tracked = true;
+        fetch(API + '/api/track-action', { method: 'POST', keepalive: true })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) { if (d) render(d.count); })
+            .catch(function () { /* ignore */ });
+    }
+
+    var petition = document.getElementById('petition-form');
+    if (petition) petition.addEventListener('submit', track);
+
+    var mpSend = document.getElementById('mp-send');
+    if (mpSend) mpSend.addEventListener('click', track);
+
+    var mpCopy = document.getElementById('mp-copy');
+    if (mpCopy) mpCopy.addEventListener('click', track);
+})();
